@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 add_subdirectory(usb_midi_host)
+add_subdirectory(no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
 
 add_compile_definitions(PICO_DEFAULT_UART_BAUD_RATE=921600)
 add_compile_definitions(PERSISTED_CONFIG_SIZE=4096)
@@ -182,5 +183,6 @@ target_link_libraries(remapper_serial
     hardware_flash
     tinyusb_device
     tinyusb_board
+    FatFs_SPI
 )
 pico_add_extra_outputs(remapper_serial)
